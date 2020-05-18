@@ -7,7 +7,7 @@ Elixir client that integrates with Yapay.
 ```elixir
 def deps do
   [
-    {:ex_yapay, "~> 0.4.2"}
+    {:ex_yapay, "~> 1.0.0"}
   ]
 end
 ```
@@ -154,4 +154,4 @@ Check out the [Contributing](CONTRIBUTING.md) guide.
 
 ## License
 
-ExYapay is released under the MIT license. See the [License](LICENSE.txt) file.
+ExYapay is released under the MIT license. See the [License](LICENSE.md) file.

@@ -1,7 +1,7 @@
 defmodule ExYapay.MixProject do
   use Mix.Project
 
-  @version "0.4.2"
+  @version "1.0.0"
   @repo_url "https://github.com/locaweb/ex-yapay"
 
   def project do
@@ -34,6 +34,7 @@ defmodule ExYapay.MixProject do
     [
       {:bypass, "~> 1.0", only: :test},
       {:credo, "~> 1.4", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.21", only: :dev, runtime: false},
       {:ex_machina, "~> 2.4", only: :test},
       {:httpotion, "~> 3.1"},
       {:jason, "~> 1.2"},
@@ -51,7 +52,7 @@ defmodule ExYapay.MixProject do
 
   defp docs do
     [
-      extras: ["README.md", "LICENSE.txt", "CONTRIBUTING.md"],
+      extras: ["README.md", "LICENSE.md", "CONTRIBUTING.md"],
       main: "ExYapay",
       source_ref: "v#{@version}",
       source_url: @repo_url

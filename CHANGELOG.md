@@ -6,6 +6,17 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.0] - 2020-05-18
+### Added
+- Add `travis CI`.
+- Publish lib to Hex.pm.
+- Add MIT license to the project.
+- Add `Contributing` section to the `Readme.md`.
+
+### Changed
+- Rename Yapay context and application name to `ExYapay`.
+- Update `README.md`.
+
 ## [0.4.2] - 2020-05-18
 ### Changed
 - Add `locawebcommon` info to the project.
@@ -48,3 +59,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Bootstrap application.
 
 [Unreleased]: https://github.com/locaweb/ex-yapay/compare/master...HEAD
+[1.0.0]: https://github.com/locaweb/ex-yapay/releases/tag/v1.0.0
