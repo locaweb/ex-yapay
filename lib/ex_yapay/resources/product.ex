@@ -1,4 +1,4 @@
-defmodule Yapay.Resources.Product do
+defmodule ExYapay.Resources.Product do
   @moduledoc false
 
   @enforce_keys [:code, :description, :extra, :price_unit, :quantity, :sku, :url_img]

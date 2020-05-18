@@ -1,4 +1,4 @@
-defmodule Yapay.Client do
+defmodule ExYapay.Client do
   @moduledoc false
 
   @typep headers :: [String.t()]

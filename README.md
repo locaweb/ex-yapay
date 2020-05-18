@@ -1,4 +1,4 @@
-# Yapay
+# ExYapay
 
 Elixir client that integrates with Yapay.
 
@@ -7,8 +7,7 @@ Elixir client that integrates with Yapay.
 ```elixir
 def deps do
   [
-    {:yapay,
-     git: "https://code.locaweb.com.br/locawebcommon/yapay"}
+    {:ex_yapay, "~> 0.4.2"}
   ]
 end
 ```
@@ -20,7 +19,7 @@ end
 Add the following config to your config.exs file:
 
 ```elixir
-config :yapay,
+config :ex_yapay,
   base_url: System.get_env("YAPAY_URL") || "https://intermediador.yapay.com.br",
   ibrowse_opts: [],
   timeout: 10000
@@ -56,7 +55,7 @@ In the struct described above, the mandatory values to start the process are `to
 In order to receive the checkout url, the only call to be made is:
 
 ```elixir
-Yapay.create_transaction(attributes)
+ExYapay.create_transaction(attributes)
 ```
 
 Which will return either:
@@ -76,9 +75,9 @@ Or
 The function `get_transaction` expects the `token_account` and `token_transaction`:
 
 ```elixir
-Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
+ExYapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
 {:ok,
- %Yapay.Resources.Transaction{
+ %ExYapay.Resources.Transaction{
    customer: %{
      addresses: [
        %{
@@ -125,7 +124,7 @@ Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
 If an error occurs, the answer will be as follows:
 
 ```elixir
-Yapay.get_transaction("6f43694d9ec6057", "123")
+ExYapay.get_transaction("6f43694d9ec6057", "123")
 {:error, %{body: "Transação não encontrada", status: 404}}
 ```
 
@@ -140,3 +139,19 @@ mix test
 ```bash
 mix format
 ```
+
+## Credo
+
+Credo is a static code analysis tool for the Elixir language, to run credo:
+
+```
+$ mix credo --strict
+```
+
+## Contributing
+
+Check out the [Contributing](CONTRIBUTING.md) guide.
+
+## License
+
+ExYapay is released under the MIT license. See the [License](LICENSE.txt) file.

@@ -1,13 +1,13 @@
-defmodule Yapay do
+defmodule ExYapay do
   @moduledoc """
   A client for the `Yapay Intermediador API`.
 
   More information can be found on the yapay doc: http://dev.yapay.com.br/intermediador/apis.
   """
 
-  alias Yapay.Resources
-  alias Yapay.Resources.{Account, Product}
-  alias Yapay.Transaction
+  alias ExYapay.Resources
+  alias ExYapay.Resources.{Account, Product}
+  alias ExYapay.Transaction
 
   @typep options :: [parser: atom(), request: atom()]
   @typep reason :: %{body: String.t(), status: integer()}
@@ -44,7 +44,7 @@ defmodule Yapay do
       shipping_type: "Correios SEDEX",
       url_notification: "http://localhost:4003/notifications/status?site_id=123&cart_id=445"
     }
-    iex> Yapay.create_transaction(attributes)
+    iex> ExYapay.create_transaction(attributes)
     {:ok, "https://checkout.yapay.com.br/transacao/ta679ae0f5f25e814a0d79bd35ee292d4"}
 
   """
@@ -57,9 +57,9 @@ defmodule Yapay do
 
   ## Examples
 
-    iex> Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
+    iex> ExYapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
     {:ok,
-     %Yapay.Resources.Transaction{
+     %ExYapay.Resources.Transaction{
        customer: %{
          addresses: [
            %{
@@ -102,7 +102,7 @@ defmodule Yapay do
        transaction_id: 313439
      }}
 
-    iex> Yapay.get_transaction("6f43694d9ec6057", "123")
+    iex> ExYapay.get_transaction("6f43694d9ec6057", "123")
     {:error, %{body: "Transação não encontrada", status: 404}}
 
   """

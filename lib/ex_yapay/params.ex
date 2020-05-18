@@ -1,4 +1,4 @@
-defmodule Yapay.Params do
+defmodule ExYapay.Params do
   @moduledoc false
 
   @doc "Returns the encoded request body."

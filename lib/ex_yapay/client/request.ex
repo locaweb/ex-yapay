@@ -1,14 +1,14 @@
-defmodule Yapay.Client.Request do
+defmodule ExYapay.Client.Request do
   @moduledoc "This module executes `HTTP Requests` to the `Yapay Intermediador API`."
 
   require Logger
 
-  @behaviour Yapay.Client
+  @behaviour ExYapay.Client
 
   @post_default_headers [{"Content-Type", "application/x-www-form-urlencoded"}]
   @get_default_headers [{"Content-Type", "application/json"}]
-  @post_prefix Application.get_env(:yapay, :request_post_prefix, "tc.")
-  @get_prefix Application.get_env(:yapay, :request_get_prefix, "api.")
+  @post_prefix Application.get_env(:ex_yapay, :request_post_prefix, "tc.")
+  @get_prefix Application.get_env(:ex_yapay, :request_get_prefix, "api.")
 
   def post(path, body, headers \\ @post_default_headers) do
     path
@@ -67,7 +67,7 @@ defmodule Yapay.Client.Request do
 
   defp build_url(path, prefix) do
     %{host: host, scheme: scheme, port: port} =
-      :yapay
+      :ex_yapay
       |> Application.get_env(:base_url)
       |> URI.parse()
 
@@ -76,7 +76,7 @@ defmodule Yapay.Client.Request do
     "#{scheme}://#{prefix}#{host}#{port}/#{path}"
   end
 
-  defp ibrowse_opts, do: Application.get_env(:yapay, :ibrowse_opts, [])
+  defp ibrowse_opts, do: Application.get_env(:ex_yapay, :ibrowse_opts, [])
 
-  defp timeout, do: Application.get_env(:yapay, :timeout, 10_000)
+  defp timeout, do: Application.get_env(:ex_yapay, :timeout, 10_000)
 end

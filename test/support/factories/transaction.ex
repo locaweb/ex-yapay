@@ -1,4 +1,4 @@
-defmodule Yapay.Support.Factories.Transaction do
+defmodule ExYapay.Support.Factories.Transaction do
   @moduledoc false
 
   defmacro __using__(_opts) do

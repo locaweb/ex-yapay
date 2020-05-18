@@ -1,11 +1,11 @@
-defmodule Yapay.TransactionTest do
+defmodule ExYapay.TransactionTest do
   use ExUnit.Case, async: true
 
   import Mox
-  import Yapay.Support.Factory
+  import ExYapay.Support.Factory
 
-  alias Yapay.Resources
-  alias Yapay.{ClientMock, ParamsMock, Transaction}
+  alias ExYapay.Resources
+  alias ExYapay.{ClientMock, ParamsMock, Transaction}
 
   @moduletag capture_log: true
 

@@ -1,7 +1,7 @@
-defmodule Yapay.Params.GetTransactionTest do
+defmodule ExYapay.Params.GetTransactionTest do
   use ExUnit.Case, async: true
 
-  alias Yapay.Params.GetTransaction
+  alias ExYapay.Params.GetTransaction
 
   describe "build/1" do
     test "returns encoded attributes when `token_account` and `token_transaction` are given" do

@@ -1,10 +1,10 @@
-defmodule YapayTest do
+defmodule ExYapayTest do
   use ExUnit.Case
 
   import Mox
 
-  alias Yapay.ParamsMock
-  alias Yapay.Resources.Transaction
+  alias ExYapay.ParamsMock
+  alias ExYapay.Resources.Transaction
 
   @fixtures_path "test/support/fixtures/get_transaction"
   @moduletag capture_log: true
@@ -12,7 +12,7 @@ defmodule YapayTest do
   setup do
     bypass = Bypass.open()
 
-    Application.put_env(:yapay, :base_url, "http://localhost:#{bypass.port}")
+    Application.put_env(:ex_yapay, :base_url, "http://localhost:#{bypass.port}")
 
     {:ok, bypass: bypass}
   end
@@ -29,7 +29,7 @@ defmodule YapayTest do
         |> Plug.Conn.send_resp(302, "um body qualquer")
       end)
 
-      assert Yapay.create_transaction("valid_cart_params", params: ParamsMock) ==
+      assert ExYapay.create_transaction("valid_cart_params", params: ParamsMock) ==
                {:ok, checkout_url}
     end
 
@@ -38,7 +38,7 @@ defmodule YapayTest do
         {:error, "Invalid params. Payload: invalid_cart_params"}
       end)
 
-      assert Yapay.create_transaction("invalid_cart_params", params: ParamsMock) ==
+      assert ExYapay.create_transaction("invalid_cart_params", params: ParamsMock) ==
                {:error, "Invalid params. Payload: invalid_cart_params"}
     end
 
@@ -50,7 +50,7 @@ defmodule YapayTest do
         Plug.Conn.send_resp(conn, 502, "Invalid transaction")
       end)
 
-      assert Yapay.create_transaction("valid_cart_params", params: ParamsMock) ==
+      assert ExYapay.create_transaction("valid_cart_params", params: ParamsMock) ==
                {:error, %{body: "Invalid transaction", status: 502}}
     end
   end
@@ -61,7 +61,7 @@ defmodule YapayTest do
         Plug.Conn.send_resp(conn, 200, File.read!("#{@fixtures_path}/success_response.json"))
       end)
 
-      assert Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f") ==
+      assert ExYapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f") ==
                {:ok,
                 %Transaction{
                   customer: %{
@@ -116,14 +116,14 @@ defmodule YapayTest do
         )
       end)
 
-      assert Yapay.get_transaction("6f43694d9ec6057", "123") ==
+      assert ExYapay.get_transaction("6f43694d9ec6057", "123") ==
                {:error, %{body: "Transação inválida ou inexistente", status: 404}}
     end
 
     test "returns an error when service is down", %{bypass: bypass} do
       Bypass.down(bypass)
 
-      assert Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f") ==
+      assert ExYapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f") ==
                {:error, %{body: "econnrefused", status: nil}}
     end
   end

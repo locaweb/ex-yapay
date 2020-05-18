@@ -1,4 +1,4 @@
-defmodule Yapay.Transaction do
+defmodule ExYapay.Transaction do
   @moduledoc """
   This module provides functions to manage transactions on `Yapay Intermediador API`.
 
@@ -9,9 +9,9 @@ defmodule Yapay.Transaction do
   * https://intermediador.dev.yapay.com.br/#/api-consultar-transacao
   """
 
-  alias Yapay.Client.Request
-  alias Yapay.Params.{CreateTransaction, GetTransaction}
-  alias Yapay.Resources
+  alias ExYapay.Client.Request
+  alias ExYapay.Params.{CreateTransaction, GetTransaction}
+  alias ExYapay.Resources
 
   @typep options :: [parser: atom(), request: atom()]
   @typep reason :: %{body: String.t(), status: integer()}

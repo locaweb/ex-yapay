@@ -1,5 +1,5 @@
 import Config
 
-config :yapay,
+config :ex_yapay,
   request_post_prefix: "",
   request_get_prefix: ""

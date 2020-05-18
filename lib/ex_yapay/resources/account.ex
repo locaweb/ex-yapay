@@ -1,4 +1,4 @@
-defmodule Yapay.Resources.Account do
+defmodule ExYapay.Resources.Account do
   @moduledoc false
 
   @enforce_keys [:token_account]

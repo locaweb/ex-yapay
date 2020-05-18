@@ -1,9 +1,9 @@
-defmodule Yapay.Params.CreateTransaction do
+defmodule ExYapay.Params.CreateTransaction do
   @moduledoc "This module builds the request body to create a transaction on `Yapay`."
 
-  alias Yapay.Resources.Product
+  alias ExYapay.Resources.Product
 
-  @behaviour Yapay.Params
+  @behaviour ExYapay.Params
 
   @optional_params [:reseller_token, :shipping_price, :shipping_type, :url_notification]
   @invalid_character "%"

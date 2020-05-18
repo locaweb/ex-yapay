@@ -1,7 +1,7 @@
-defmodule Yapay.Client.RequestTest do
+defmodule ExYapay.Client.RequestTest do
   use ExUnit.Case
 
-  alias Yapay.Client.Request
+  alias ExYapay.Client.Request
 
   @fixtures_path "test/support/fixtures/get_transaction"
   @moduletag capture_log: true
@@ -9,7 +9,7 @@ defmodule Yapay.Client.RequestTest do
   setup do
     bypass = Bypass.open()
 
-    Application.put_env(:yapay, :base_url, "http://localhost:#{bypass.port}")
+    Application.put_env(:ex_yapay, :base_url, "http://localhost:#{bypass.port}")
 
     {:ok, bypass: bypass}
   end

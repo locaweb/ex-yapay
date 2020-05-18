@@ -1,4 +1,4 @@
-defmodule Yapay.Resources.Transaction do
+defmodule ExYapay.Resources.Transaction do
   @moduledoc "This structure represents a `Yapay` transaction."
 
   @typep address :: %{

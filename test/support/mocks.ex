@@ -1,2 +1,2 @@
-Mox.defmock(Yapay.ClientMock, for: Yapay.Client)
-Mox.defmock(Yapay.ParamsMock, for: Yapay.Params)
+Mox.defmock(ExYapay.ClientMock, for: ExYapay.Client)
+Mox.defmock(ExYapay.ParamsMock, for: ExYapay.Params)

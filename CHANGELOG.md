@@ -47,11 +47,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ### Added
 - Bootstrap application.
 
-[Unreleased]: https://code.locaweb.com.br/locawebcommon/yapay/compare/master...v0.4.2
-[0.4.2]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.4.1...v0.4.2
-[0.4.1]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.4.0...v0.4.1
-[0.4.0]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.3.0...v0.4.0
-[0.3.0]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.2.0...v0.3.0
-[0.2.0]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.1.0...v0.2.0
-[0.1.0]: https://code.locaweb.com.br/locawebcommon/yapay/compare/v0.0.1...v0.1.0
-[0.0.1]: https://code.locaweb.com.br/locawebcommon/yapay/-/tags/v0.0.1
+[Unreleased]: https://github.com/locaweb/ex-yapay/compare/master...HEAD

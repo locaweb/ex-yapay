@@ -1,9 +1,9 @@
-defmodule Yapay.Params.CreateTransactionTest do
+defmodule ExYapay.Params.CreateTransactionTest do
   use ExUnit.Case, async: true
 
-  import Yapay.Support.Factory
+  import ExYapay.Support.Factory
 
-  alias Yapay.Params.CreateTransaction
+  alias ExYapay.Params.CreateTransaction
 
   @moduletag capture_log: true
 
