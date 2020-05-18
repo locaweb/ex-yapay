@@ -1,0 +1,142 @@
+# Yapay
+
+Elixir client that integrates with Yapay.
+
+## Installation
+
+```elixir
+def deps do
+  [
+    {:yapay,
+     git: "https://code.locaweb.com.br/locawebcommon/yapay"}
+  ]
+end
+```
+
+## Usage
+
+### Configuration
+
+Add the following config to your config.exs file:
+
+```elixir
+config :yapay,
+  base_url: System.get_env("YAPAY_URL") || "https://intermediador.yapay.com.br",
+  ibrowse_opts: [],
+  timeout: 10000
+```
+
+### Create a Transaction
+
+The function `create_transaction` expects a map containing an account and a list of products, like so:
+
+```elixir
+attributes = %{
+  account: %{token_account: "3f3f2f0d347797b"},
+  products: [
+    %{
+      code: 1,
+      description: "notebook",
+      extra: nil,
+      price_unit: 10,
+      quantity: 1,
+      sku: 123,
+      url_img: "https://some.product/url"
+    }
+  ],
+  reseller_token: "a1w0l2l1231lpw0pa",
+  shipping_price: 23.39,
+  shipping_type: "Correios SEDEX",
+  url_notification: "http://localhost:4003/notifications/status?site_id=123&cart_id=445"
+}
+```
+
+In the struct described above, the mandatory values to start the process are `token_account`, `description`, `price_unit` and `quantity`. Values other than those can be `nil`, but their keys are required as well.
+
+In order to receive the checkout url, the only call to be made is:
+
+```elixir
+Yapay.create_transaction(attributes)
+```
+
+Which will return either:
+
+```elixir
+{:ok, "some.checkout/url"}
+```
+
+Or
+
+```elixir
+{:error, %{body: 400, body: "message the reflects what went wrong"}}
+```
+
+### Get a Transaction
+
+The function `get_transaction` expects the `token_account` and `token_transaction`:
+
+```elixir
+Yapay.get_transaction("6f43694d9ec6057", "9342ef911dd843e7a2fae4a41357727f")
+{:ok,
+ %Yapay.Resources.Transaction{
+   customer: %{
+     addresses: [
+       %{
+         city: "Campo Grande",
+         completion: "",
+         neighborhood: "Centro",
+         number: "2434",
+         postal_code: "79002003",
+         state: "MS",
+         street: "Avenida Calógeras"
+       }
+     ],
+     cnpj: "",
+     company_name: "",
+     contacts: [%{type_contact: "W", value: "1135440444"}],
+     cpf: "11122233388",
+     email: "your.email@example.com",
+     name: "Locaweb",
+     trade_name: "Locaweb"
+   },
+   free: "|POST| |checkout|",
+   order_number: "1576009266",
+   payment: %{
+     date_approval: 1576009320,
+     date_payment: 1576009320,
+     linha_digitavel: nil,
+     payment_method_id: 4,
+     payment_method_name: "Mastercard",
+     payment_response: "Mensagem de venda fake",
+     price_original: "208.0",
+     price_payment: "216.33",
+     split: 3,
+     tid: "1233",
+     url_payment: nil
+   },
+   refunds: [],
+   status_id: 6,
+   status_name: "Aprovada",
+   token_transaction: "9342ef911dd843e7a2fae4a41357727f",
+   transaction_id: 313439
+ }}
+```
+
+If an error occurs, the answer will be as follows:
+
+```elixir
+Yapay.get_transaction("6f43694d9ec6057", "123")
+{:error, %{body: "Transação não encontrada", status: 404}}
+```
+
+## Running tests
+
+```bash
+mix test
+```
+
+## Running code formatter
+
+```bash
+mix format
+```

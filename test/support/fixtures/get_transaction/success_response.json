@@ -1,0 +1,50 @@
+{
+  "message_response": {
+    "message": "success"
+  },
+  "data_response": {
+    "transaction": {
+      "order_number": "1576009266",
+      "free": "|POST| |checkout|",
+      "transaction_id": 313439,
+      "status_name": "Aprovada",
+      "status_id": 6,
+      "token_transaction": "9342ef911dd843e7a2fae4a41357727f",
+      "payment": {
+        "price_original": "208.0",
+        "price_payment": "216.33",
+        "payment_response": "Mensagem de venda fake",
+        "url_payment": null,
+        "tid": "1233",
+        "split": 3,
+        "payment_method_id": 4,
+        "payment_method_name": "Mastercard",
+        "linha_digitavel": null,
+        "date_payment": 1576009320,
+        "date_approval": 1576009320
+      },
+      "refunds": [],
+      "customer": {
+        "name": "Criador de Sites",
+        "cpf": "63804386962",
+        "email": "criadordesites-dev@locaweb.com.br",
+        "company_name": "",
+        "trade_name": "Criador de Sites",
+        "cnpj": "",
+        "addresses": [{
+          "street": "Avenida Calógeras",
+          "number": "2434",
+          "neighborhood": "Centro",
+          "postal_code": "79002003",
+          "completion": "",
+          "city": "Campo Grande",
+          "state": "MS"
+        }],
+        "contacts": [{
+          "value": "1135440444",
+          "type_contact": "W"
+        }]
+      }
+    }
+  }
+}

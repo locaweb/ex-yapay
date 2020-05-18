@@ -1,0 +1,13 @@
+{
+  "message_response": {
+    "message": "error"
+  },
+  "error_response": {
+    "general_errors": [
+      {
+        "code": "003005",
+        "message": "Transação inválida ou inexistente"
+      }
+    ]
+  }
+}
