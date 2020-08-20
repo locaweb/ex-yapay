@@ -7,12 +7,10 @@ defmodule ExYapay.Client.Request do
 
   @post_default_headers [{"Content-Type", "application/x-www-form-urlencoded"}]
   @get_default_headers [{"Content-Type", "application/json"}]
-  @post_prefix Application.get_env(:ex_yapay, :request_post_prefix, "tc.")
-  @get_prefix Application.get_env(:ex_yapay, :request_get_prefix, "api.")
 
   def post(path, body, headers \\ @post_default_headers) do
     path
-    |> build_url(@post_prefix)
+    |> build_url(post_prefix())
     |> log_request_info(body)
     |> HTTPotion.post(body: body, headers: headers, ibrowse: ibrowse_opts(), timeout: timeout())
     |> process()
@@ -20,7 +18,7 @@ defmodule ExYapay.Client.Request do
 
   def get(path, headers \\ @get_default_headers) do
     path
-    |> build_url(@get_prefix)
+    |> build_url(get_prefix())
     |> log_request_info()
     |> HTTPotion.get(ibrowse: ibrowse_opts(), headers: headers, timeout: timeout())
     |> process()
@@ -79,4 +77,8 @@ defmodule ExYapay.Client.Request do
   defp ibrowse_opts, do: Application.get_env(:ex_yapay, :ibrowse_opts, [])
 
   defp timeout, do: Application.get_env(:ex_yapay, :timeout, 10_000)
+
+  defp post_prefix, do: Application.get_env(:ex_yapay, :request_post_prefix, "tc.")
+
+  defp get_prefix, do: Application.get_env(:ex_yapay, :request_get_prefix, "api.")
 end
