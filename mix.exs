@@ -1,7 +1,7 @@
 defmodule ExYapay.MixProject do
   use Mix.Project
 
-  @version "1.0.0"
+  @version "1.0.1"
   @repo_url "https://github.com/locaweb/ex-yapay"
 
   def project do
@@ -14,8 +14,7 @@ defmodule ExYapay.MixProject do
       version: @version,
 
       # Hex
-      description: "Elixir client that integrates with Yapay.
-",
+      description: "Elixir client that integrates with Yapay.",
       package: package(),
 
       # Docs

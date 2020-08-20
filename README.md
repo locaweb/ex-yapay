@@ -7,7 +7,7 @@ Elixir client that integrates with Yapay.
 ```elixir
 def deps do
   [
-    {:ex_yapay, "~> 1.0.0"}
+    {:ex_yapay, "~> 1.0.1"}
   ]
 end
 ```

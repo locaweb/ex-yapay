@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [1.0.1] - 2020-08-20
+### Changed
+- Facilitate switching between sandbox and production environments changing `request_post_prefix` and `request_get_prefix` from module attributes to private functions.
+
 ## [1.0.0] - 2020-05-18
 ### Added
 - Add `travis CI`.
@@ -59,4 +63,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Bootstrap application.
 
 [Unreleased]: https://github.com/locaweb/ex-yapay/compare/master...HEAD
+[1.0.1]: https://github.com/locaweb/ex-yapay/compare/v1.0.0..v1.0.1
 [1.0.0]: https://github.com/locaweb/ex-yapay/releases/tag/v1.0.0
