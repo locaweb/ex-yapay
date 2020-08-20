@@ -21,9 +21,28 @@ Add the following config to your config.exs file:
 ```elixir
 config :ex_yapay,
   base_url: System.get_env("YAPAY_URL") || "https://intermediador.yapay.com.br",
+  request_post_prefix: System.get_env("YAPAY_REQUEST_POST_PREFIX") || "tc.",
   ibrowse_opts: [],
   timeout: 10000
 ```
+
+Both `YAPAY_URL` and `YAPAY_REQUEST_POST_PREFIX` will need to be set differently depending on the environment:
+
+#### Sandbox
+
+```bash
+YAPAY_URL=https://intermediador-sandbox.yapay.com.br
+YAPAY_REQUEST_POST_PREFIX=tc-
+```
+
+#### Production
+
+```bash
+YAPAY_URL=https://intermediador.yapay.com.br
+YAPAY_REQUEST_POST_PREFIX=tc.
+```
+
+In case none of these are set, the environment you are using is assumed to be production.
 
 ### Create a Transaction
 
