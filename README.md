@@ -167,6 +167,19 @@ Credo is a static code analysis tool for the Elixir language, to run credo:
 $ mix credo --strict
 ```
 
+## Using Docker (docker-compose)
+
+### Run tests (run by default)
+```
+docker-compose run ex-yapay
+```
+
+### Start bash in Elixir container
+The project source will be available at `/app`
+```
+docker-compose run ex-yapay bash
+```
+
 ## Contributing
 
 Check out the [Contributing](CONTRIBUTING.md) guide.
