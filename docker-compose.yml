@@ -1,0 +1,19 @@
+version: '3.7'
+services:
+  ex-yapay:    
+    image: elixir:1.12.3
+    volumes:
+      - .:/app
+    environment:
+      MIX_HOME: /app/.mix      
+    working_dir: /app    
+    command:
+      - /bin/bash
+      - -c
+      - |
+        cd /app
+        mix local.hex --force
+        mix local.rebar --force
+        MIX_ENV=test mix do deps.get deps.install, test
+
+    
